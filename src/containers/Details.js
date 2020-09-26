@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native';
+import {ToastAndroid, SafeAreaView} from 'react-native';
 import {
   Divider,
   Icon,
@@ -35,6 +35,7 @@ export const DetailsScreen = ({navigation}) => {
         longitude: location.longitude,
       });
       await AsyncStorage.setItem('locations', JSON.stringify(locations));
+      ToastAndroid.show('Location successfully added!', ToastAndroid.SHORT);
     } catch (e) {
       console.log(e);
     }
