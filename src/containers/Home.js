@@ -7,6 +7,7 @@ import {
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
+import {LocationList} from '../components/LocationList';
 
 const AddIcon = (props) => <Icon {...props} name="plus-outline" />;
 
@@ -21,14 +22,20 @@ export const HomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <TopNavigation title="Home Screen" alignment="center" accessoryRight={NavigationButton} />
+      <TopNavigation
+        title="Home Screen"
+        alignment="center"
+        accessoryRight={NavigationButton}
+      />
       <Divider />
       <Layout
         style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}></Layout>
+        }}>
+        <LocationList />
+      </Layout>
     </SafeAreaView>
   );
 };
