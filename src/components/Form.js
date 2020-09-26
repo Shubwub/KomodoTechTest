@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Layout, Text, Input} from '@ui-kitten/components';
 import {LocationText} from './LocationText';
 import Geolocation from '@react-native-community/geolocation';
 
-export const Form = () => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [location, setLocation] = useState({});
-
+export const Form = ({
+  name,
+  setName,
+  description,
+  setDescription,
+  location,
+  setLocation,
+}) => {
   useEffect(() => {
     Geolocation.getCurrentPosition(({coords: {latitude, longitude}}) =>
       setLocation({latitude, longitude}),
