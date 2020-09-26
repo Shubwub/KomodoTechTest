@@ -37,6 +37,7 @@ export const Form = ({
         value={description}
         onChangeText={setDescription}
         multiline
+        style={{marginBottom: 20}}
       />
       <LocationText location={location} />
     </Layout>
