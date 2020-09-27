@@ -2,11 +2,10 @@ import React from 'react';
 import {Text, Icon, Layout} from '@ui-kitten/components';
 
 export const LocationText = ({location}) => {
-  console.log(location);
   return (
     <Layout
       style={{
-        flex: 1,
+        display: 'flex',
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
