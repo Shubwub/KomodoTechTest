@@ -39,7 +39,9 @@ export const Form = ({
         multiline
         style={{marginBottom: 20}}
       />
-      <LocationText location={location} />
+      {location.latitude && location.longitude && (
+        <LocationText location={location} />
+      )}
     </Layout>
   );
 };
