@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Layout, Toggle, Input} from '@ui-kitten/components';
 import {LocationText} from './LocationText';
 import Geolocation from '@react-native-community/geolocation';
-import MapView from 'react-native-maps';
 import {MapComponent} from './MapComponent';
 
 export const Form = ({
