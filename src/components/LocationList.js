@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Layout, Text, Input} from '@ui-kitten/components';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import {LocationCard} from './LocationCard';
