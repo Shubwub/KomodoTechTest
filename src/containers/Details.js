@@ -18,6 +18,7 @@ export const DetailsScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState({});
+  const [selected, setSelected] = useState(true);
 
   const navigateBack = () => {
     navigation.goBack();
@@ -70,6 +71,8 @@ export const DetailsScreen = ({navigation}) => {
           setDescription={setDescription}
           location={location}
           setLocation={setLocation}
+          isSelected={selected}
+          setSelected={setSelected}
         />
       </Layout>
     </SafeAreaView>
