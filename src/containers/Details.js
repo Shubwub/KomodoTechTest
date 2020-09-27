@@ -37,6 +37,7 @@ export const DetailsScreen = ({navigation}) => {
       });
       await AsyncStorage.setItem('locations', JSON.stringify(locations));
       ToastAndroid.show('Location successfully added!', ToastAndroid.SHORT);
+      navigateBack();
     } catch (e) {
       console.log(e);
     }
