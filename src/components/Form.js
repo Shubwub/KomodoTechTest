@@ -40,15 +40,19 @@ export const Form = ({
         multiline
         style={{marginBottom: 20}}
       />
-      <LocationText location={location} />
-      <MapView
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+      {location.latitude && location.longitude && (
+        <>
+          <LocationText location={location} />
+          <MapView
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
+        </>
+      )}
     </Layout>
   );
 };

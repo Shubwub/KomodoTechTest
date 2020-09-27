@@ -7,13 +7,16 @@ import {LocationCard} from './LocationCard';
 
 export const LocationList = () => {
   const [locations, setLocations] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
 
   const getLocations = async () => {
     try {
+      setRefreshing(true);
       const locationsString = await AsyncStorage.getItem('locations');
       const locationsArray =
         locationsString != null ? JSON.parse(locationsString) : null;
       setLocations(locationsArray);
+      setRefreshing(false);
     } catch (e) {
       console.log(e);
     }
@@ -38,6 +41,8 @@ export const LocationList = () => {
       renderItem={renderItem}
       keyExtractor={(item) => item.name}
       style={{flex: 1, width: '100%'}}
+      onRefresh={() => getLocations()}
+      refreshing={refreshing}
     />
   ) : (
     <Text>No locations found</Text>
