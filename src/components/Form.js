@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Layout, Text, Input} from '@ui-kitten/components';
 import {LocationText} from './LocationText';
 import Geolocation from '@react-native-community/geolocation';
+import MapView from 'react-native-maps';
 
 export const Form = ({
   name,
@@ -40,6 +41,14 @@ export const Form = ({
         style={{marginBottom: 20}}
       />
       <LocationText location={location} />
+      <MapView
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      />
     </Layout>
   );
 };
