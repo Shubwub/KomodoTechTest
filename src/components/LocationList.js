@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import {Text} from '@ui-kitten/components';
 import {FlatList, StyleSheet} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
 
-import AsyncStorage from '@react-native-community/async-storage';
 import {LocationCard} from './LocationCard';
 
 export const LocationList = () => {
   const [locations, setLocations] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const reduxLocations = useSelector((state) => state.locations.locations);
+  const dispatch = useDispatch();
 
   const getLocations = async () => {
     try {
       setRefreshing(true);
-      const locationsString = await AsyncStorage.getItem('locations');
-      const locationsArray =
-        locationsString != null ? JSON.parse(locationsString) : null;
-      setLocations(locationsArray);
+      await setLocations(reduxLocations);
       setRefreshing(false);
     } catch (e) {
       console.log(e);
@@ -25,7 +24,10 @@ export const LocationList = () => {
   const deleteLocation = async (index) => {
     const filtered = locations.filter((item, idx) => idx != index);
     await setLocations(filtered);
-    await AsyncStorage.setItem('locations', JSON.stringify(filtered));
+    await dispatch({
+      type: 'REMOVE_LOCATION',
+      payload: filtered,
+    });
   };
 
   const renderItem = (item, index) => (
